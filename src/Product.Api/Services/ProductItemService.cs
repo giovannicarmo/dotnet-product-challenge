@@ -3,41 +3,41 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Product.Commons.Dtos;
-using Product.Commons.Exceptions;
 using Product.Commons.Validators;
 using Product.Domain.Models;
 using Product.Domain.Repositories;
+using FluentValidation;
 
 namespace Product.Api.Services
 {
     public class ProductItemService : IProductItemService
     {
         private readonly IMapper _mapper;
-        private readonly IProductItemRepository _productItemRepository;
-        private readonly ProductItemDTOValidator _productItemValidator;
+        private readonly IProductItemRepository _repository;
+        private readonly ProductItemDTOValidator _validator;
 
         public ProductItemService(
             IMapper mapper,
-            IProductItemRepository productItemRepository,
-            ProductItemDTOValidator productItemValidator)
+            IProductItemRepository repository,
+            ProductItemDTOValidator validator)
         {
             _mapper = mapper;
-            _productItemRepository = productItemRepository;
-            _productItemValidator = productItemValidator;
+            _repository = repository;
+            _validator = validator;
         }
 
         public async Task<ProductItemDto> GetByIdAsync(int id)
         {
             try
             {
-                var result = await _productItemRepository.GetByIdAsync(id);
+                var productItem = await _repository.GetByIdAsync(id);
 
-                if (result == null)
+                if (productItem == null)
                 {
-                    throw new EntityNotFountException($"Product item not found for given Id: {id}");
+                    throw new ArgumentException($"Product item not found for given Id: {id}");
                 }
 
-                return ToDto(result);
+                return _mapper.Map<ProductItemDto>(productItem);
             }
             catch (Exception)
             {
@@ -50,36 +50,68 @@ namespace Product.Api.Services
             throw new NotImplementedException();
         }
 
-        public Task<ProductItemDto> UpdateAsync(ProductItemDto productItemDto)
+        public async Task<ProductItemDto> CreateAsync(ProductItemDto productItemDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _validator.ValidateAndThrow(productItemDto);
+                var productItem = _mapper.Map<ProductItem>(productItemDto);
+
+                await _repository.AddAsync(productItem);
+
+                return _mapper.Map<ProductItemDto>(productItem);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<ProductItemDto> UpdateAsync(int id, ProductItemDto productItemDto)
+        {
+            try
+            {
+                var productItem = await _repository.GetByIdAsync(id);
+
+                if (productItem == null)
+                {
+                    throw new ArgumentException($"Product item not found for given Id: {id}");
+                }
+
+                _validator.ValidateAndThrow(productItemDto);
+                _mapper.Map(productItemDto, productItem);
+
+                await _repository.UpdateAsync(productItem);
+
+                return _mapper.Map<ProductItemDto>(productItem);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<ProductItemDto> RemoveAsync(int id)
         {
             try
             {
-                var productItem = await _productItemRepository.GetByIdAsync(id);
+                var productItem = await _repository.GetByIdAsync(id);
 
                 if (productItem == null || productItem.Status == ProductStatus.INACTIVE)
                 {
-                    throw new EntityNotFountException($"Product item not found for given Id: {id}");
+                    throw new ArgumentException($"Product item not found for given Id: {id}");
                 }
 
-                var result = await _productItemRepository.RemoveAsync(productItem);
+                await _repository.RemoveAsync(productItem);
 
-                return ToDto(result);
+                return _mapper.Map<ProductItemDto>(productItem);
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
-        private ProductItem FromDto(ProductItemDto productItemDto)
-            => _mapper.Map<ProductItem>(productItemDto);
-
-        private ProductItemDto ToDto(ProductItem productItem)
-        => _mapper.Map<ProductItemDto>(productItem);
     }
 }

@@ -7,6 +7,6 @@ namespace Product.Domain.Repositories
     public interface IProductItemRepository : IRepository<ProductItem>
     {
         Task<List<ProductItem>> GetFilteredAsync();
-        Task<ProductItem> RemoveAsync(ProductItem productItem);
+        Task RemoveAsync(ProductItem productItem);
     }
 }

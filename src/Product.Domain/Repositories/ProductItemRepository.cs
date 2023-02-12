@@ -9,9 +9,9 @@ namespace Product.Domain.Repositories
 {
     public class ProductItemRepository : AbstractRepository<ProductItem>, IProductItemRepository
     {
-        private readonly Context _context;
+        private readonly ProductDbContext _context;
 
-        public ProductItemRepository(Context context) : base(context)
+        public ProductItemRepository(ProductDbContext context) : base(context)
         {
             _context = context;
         }
@@ -21,10 +21,10 @@ namespace Product.Domain.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<ProductItem> RemoveAsync(ProductItem productItem)
+        public async Task RemoveAsync(ProductItem productItem)
         {
             productItem.Status = ProductStatus.INACTIVE;   
-            return await UpdateAsync(productItem);
+            await UpdateAsync(productItem);
         }
     }
 }

@@ -6,11 +6,11 @@ namespace Product.Domain.Repositories
 {
     public abstract class AbstractRepository<T> : IRepository<T> where T : class
     {
-        protected readonly DbContext _context;
+        protected readonly ProductDbContext _context;
 
-        protected AbstractRepository(DbContext context)
+        protected AbstractRepository(ProductDbContext context)
         {
-            context = _context;
+            _context = context;
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -29,12 +29,10 @@ namespace Product.Domain.Repositories
 
             return entity;
         }
-        public async Task<T> UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
             _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
-
-            return entity;
         }
         public async Task DeleteAsync(T entity)
         {

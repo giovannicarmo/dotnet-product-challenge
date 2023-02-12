@@ -23,7 +23,7 @@ namespace Product.Domain.Configurations
                 .HasMaxLength(255);
             builder
                 .Property(p => p.Status)
-                .HasColumnName("product_status")
+                .HasColumnName("status")
                 .HasConversion(
                     s => s.ToString(),
                     s => (ProductStatus)Enum.Parse(typeof(ProductStatus), s)
