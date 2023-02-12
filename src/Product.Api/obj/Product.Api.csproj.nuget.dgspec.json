@@ -1,0 +1,221 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Api/Product.Api.csproj": {}
+  },
+  "projects": {
+    "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Api/Product.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Api/Product.Api.csproj",
+        "projectName": "Product.Api",
+        "projectPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Api/Product.Api.csproj",
+        "packagesPath": "/home/giovannicarmo/.nuget/packages/",
+        "outputPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Api/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/giovannicarmo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/Product.Commons.csproj": {
+                "projectPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/Product.Commons.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/Product.Commons.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/Product.Commons.csproj",
+        "projectName": "Product.Commons",
+        "projectPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/Product.Commons.csproj",
+        "packagesPath": "/home/giovannicarmo/.nuget/packages/",
+        "outputPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/giovannicarmo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/Product.Domain.csproj": {
+                "projectPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/Product.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "FluentValidation.ValidatorAttribute": {
+              "target": "Package",
+              "version": "[8.6.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/Product.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/Product.Domain.csproj",
+        "projectName": "Product.Domain",
+        "projectPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/Product.Domain.csproj",
+        "packagesPath": "/home/giovannicarmo/.nuget/packages/",
+        "outputPath": "/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/giovannicarmo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

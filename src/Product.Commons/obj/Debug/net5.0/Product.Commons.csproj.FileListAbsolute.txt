@@ -1,0 +1,15 @@
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/bin/Debug/net5.0/Product.Commons.deps.json
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/bin/Debug/net5.0/Product.Commons.dll
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/bin/Debug/net5.0/Product.Commons.pdb
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/bin/Debug/net5.0/Product.Domain.dll
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/bin/Debug/net5.0/Product.Domain.pdb
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.csproj.AssemblyReference.cache
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.GeneratedMSBuildEditorConfig.editorconfig
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.AssemblyInfoInputs.cache
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.AssemblyInfo.cs
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.csproj.CoreCompileInputs.cache
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.csproj.CopyComplete
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.dll
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/refint/Product.Commons.dll
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/Product.Commons.pdb
+/home/giovannicarmo/Documents/studies/dotnet-product-challenge/src/Product.Commons/obj/Debug/net5.0/ref/Product.Commons.dll
