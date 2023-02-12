@@ -61,7 +61,7 @@ namespace Product.Api.Controllers
             try
             {
                 var productItem = await _productItemService.CreateAsync(productItemDto);
-                return CreatedAtAction("GetProductItem", new { id = productItem.Id }, productItem);
+                return Ok(productItem);
             }
             catch (ValidationException e)
             {

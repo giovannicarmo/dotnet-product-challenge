@@ -99,7 +99,7 @@ namespace Product.Api.Services
             {
                 var productItem = await _repository.GetByIdAsync(id);
 
-                if (productItem == null || productItem.Status == ProductStatus.INACTIVE)
+                if (productItem == null || !productItem.Exists)
                 {
                     throw new ArgumentException($"Product item not found for given Id: {id}");
                 }
