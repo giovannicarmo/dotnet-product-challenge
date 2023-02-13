@@ -8,6 +8,8 @@ namespace Product.Commons.Validators
         public ProductItemDTOValidator()
         {
             RuleFor(pi => pi.Description)
+                .NotEmpty()
+                .WithMessage("Description is required.")
                 .MaximumLength(255)
                 .WithMessage("Description must have a maximum of 255 characters.");
 

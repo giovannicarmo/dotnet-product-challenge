@@ -32,7 +32,7 @@ namespace Product.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProductDbContext>(options =>
-                options.UseSqlite(@"../../src/Product.Api/Product.db")
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddControllers();
             services
