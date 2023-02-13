@@ -7,6 +7,7 @@ using Product.Commons.Validators;
 using Product.Domain.Models;
 using Product.Domain.Repositories;
 using FluentValidation;
+using Product.Domain.Specifications;
 
 namespace Product.Api.Services
 {
@@ -45,9 +46,22 @@ namespace Product.Api.Services
             }
         }
 
-        public Task<List<ProductItemDto>> GetItemsByFilter()
+        public async Task<List<ProductItemDto>> GetByFilterAsync(
+            ProductItemSpecification specification,
+            int pageSize,
+            int pageIndex
+        )
         {
-            throw new NotImplementedException();
+            try
+            {
+                var productItems = await _repository.GetByFilterAsync(specification, pageSize, pageIndex);
+                return _mapper.Map<List<ProductItemDto>>(productItems);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<ProductItemDto> CreateAsync(ProductItemDto productItemDto)

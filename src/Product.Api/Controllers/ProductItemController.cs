@@ -6,6 +6,8 @@ using AutoMapper;
 using FluentValidation;
 using Product.Api.Services;
 using Product.Commons.Dtos;
+using System.Collections.Generic;
+using Product.Domain.Specifications;
 
 namespace Product.Api.Controllers
 {
@@ -20,24 +22,9 @@ namespace Product.Api.Controllers
             _productItemService = productItemService;
         }
 
-        // // GET: api/ProductItem
-        // [HttpGet]
-        // public async Task<ActionResult<IEnumerable<ProductItemDto>>> GetProductItems()
-        // {
-        //     try
-        //     {
-        //         var productItems = await _productItemService.GetAllAsync();
-        //         return Ok(_mapper.Map<IEnumerable<ProductItemDto>>(productItems));
-        //     }
-        //     catch (Exception e)
-        //     {
-        //         return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-        //     }
-        // }
-
         // GET: api/ProductItem/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductItemDto>> GetProductItem(int id)
+        public async Task<ActionResult<ProductItemDto>> GetProductItemAsync(int id)
         {
             try
             {
@@ -54,9 +41,39 @@ namespace Product.Api.Controllers
             }
         }
 
+        // GET: api/ProductItem
+        [HttpGet]
+        public async Task<ActionResult<List<ProductItemDto>>> GetProductItemsByFilterAsync(
+            string description,
+            DateTime? startExpirationDate,
+            DateTime? endExpirationDate,
+            int? supplierCode,
+            int pageSize,
+            int pageIndex
+        )
+        {
+            try
+            {
+                var specification = new ProductItemSpecification
+                {
+                    Description = description, 
+                    StartExpirationDate = startExpirationDate,
+                    EndExpirationDate = endExpirationDate,
+                    SupplierCode = supplierCode,
+                };
+
+                var productItems = await _productItemService.GetByFilterAsync(specification, pageSize, pageIndex);
+                return Ok(productItems);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
         // POST: api/ProductItem
         [HttpPost]
-        public async Task<ActionResult<ProductItemDto>> PostProductItem(ProductItemDto productItemDto)
+        public async Task<ActionResult<ProductItemDto>> PostProductItemAsync(ProductItemDto productItemDto)
         {
             try
             {
@@ -75,7 +92,7 @@ namespace Product.Api.Controllers
 
         // PUT: api/ProductItem/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductItem(int id, ProductItemDto productItemDto)
+        public async Task<IActionResult> PutProductItemAsync(int id, ProductItemDto productItemDto)
         {
             try
             {
@@ -98,7 +115,7 @@ namespace Product.Api.Controllers
 
         // DELETE: api/ProductItem/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductItem(int id)
+        public async Task<IActionResult> DeleteProductItemAsync(int id)
         {
             try
             {
@@ -115,6 +132,5 @@ namespace Product.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-
     }
 }
