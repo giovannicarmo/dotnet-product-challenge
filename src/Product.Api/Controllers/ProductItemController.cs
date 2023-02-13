@@ -42,6 +42,7 @@ namespace Product.Api.Controllers
         }
 
         // GET: api/ProductItem
+        // http://localhost:5000/api/ProductItem?description=Toot&startExpirationDate=2023-01-01&endExpirationDate=2023-12-31&SupplierCode=43211234&pageSize=10&pageIndex=0
         [HttpGet]
         public async Task<ActionResult<List<ProductItemDto>>> GetProductItemsByFilterAsync(
             string description,
