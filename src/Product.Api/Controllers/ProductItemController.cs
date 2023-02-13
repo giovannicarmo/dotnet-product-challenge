@@ -48,8 +48,8 @@ namespace Product.Api.Controllers
             DateTime? startExpirationDate,
             DateTime? endExpirationDate,
             int? supplierCode,
-            int pageSize,
-            int pageIndex
+            int pageSize = 10,
+            int pageIndex = 0
         )
         {
             try

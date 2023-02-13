@@ -18,8 +18,8 @@ namespace Product.Domain.Repositories
 
         public async Task<IEnumerable<ProductItem>> GetByFilterAsync(
             ProductItemSpecification specification,
-            int pageSize = 10,
-            int pageIndex = 0)
+            int pageSize,
+            int pageIndex)
         {
             var filter = new ProductItemsByCriteriaSpecification(specification).Criteria; 
 

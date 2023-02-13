@@ -22,17 +22,18 @@ namespace Product.Domain.Specifications
 
                 if (!string.IsNullOrEmpty(_spec.Description))
                 {
-                    predicate = predicate.And(pi => pi.Description.Contains(_spec.Description));
+                    predicate = predicate.And(pi
+                        => pi.Description.ToLower().Contains(_spec.Description.ToLower()));
                 }
 
                 if (_spec.StartExpirationDate.HasValue)
                 {
-                    predicate = predicate.And(pi => pi.ManufacturingDate >= _spec.StartExpirationDate.Value);
+                    predicate = predicate.And(pi => pi.ExpirationDate >= _spec.StartExpirationDate.Value);
                 }
 
                 if (_spec.EndExpirationDate.HasValue)
                 {
-                    predicate = predicate.And(pi => pi.ManufacturingDate <= _spec.EndExpirationDate.Value);
+                    predicate = predicate.And(pi => pi.ExpirationDate <= _spec.EndExpirationDate.Value);
                 }
 
                 if (_spec.SupplierCode.HasValue)
